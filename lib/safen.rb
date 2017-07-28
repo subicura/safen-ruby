@@ -25,13 +25,16 @@ module Safen
       socket.close
     end
 
-    if ret[:code] == '2001'
+    if ret[:code] == '2001' # 매핑 응답
       return ret[:data][0...20], ret[:data][20...24]
+    elsif ret[:code] == '2002' # 해제 응답
+      return nil, ret[:data][0...4]
     end
 
     return nil, nil
   end
 
+  # 전화 번호 리턴
   def self.create(corp_code, old_tel_num, group_code)
     header = Header.mapping_request(corp_code)
     body = Body.mapping_request(old_tel_num, group_code)
@@ -43,5 +46,19 @@ module Safen
     end
 
     data
+  end
+
+  # 성공여부 리턴
+  def self.remove(corp_code, new_tel_num, group_code)
+    header = Header.mapping_cancel_request(corp_code)
+    body = Body.mapping_cancel_request(new_tel_num, group_code)
+
+    code, data = call_api(header, body)
+
+    if code != '0000'
+      raise SafenError.new(code), 'Safen API call error'
+    end
+
+    true
   end
 end

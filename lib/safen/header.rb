@@ -1,9 +1,14 @@
 module Safen
   class Header
     class << self
-      # 전화번호 생성
+      # 전화번호 맵핑
       def mapping_request(corp_code)
         create_header 110, '1001', corp_code
+      end
+
+      # 전화번호 맵핑 해제
+      def mapping_cancel_request(corp_code)
+        create_header 30, '1002', corp_code
       end
 
       # 전문길이 (4byte) Header를 제외한 Body data size
