@@ -1,4 +1,4 @@
-module Safen
+class Safen
   class Body
     class << self
       # 전화번호 매핑

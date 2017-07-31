@@ -23,7 +23,7 @@ Or install it yourself as:
 ### 매핑 요청
 
 ```
-Safen.create corp_code, old_tel_num, group_code
+Safen.new(['xxx.xxx.xxx.xxx:xxxx']).create corp_code, old_tel_num, group_code
 ```
 
 **params**
@@ -39,7 +39,7 @@ Safen.create corp_code, old_tel_num, group_code
 ### 수정 요청
 
 ```
-Safen.update corp_code, old_tel_num, group_code, new_tel_num
+Safen.new(['xxx.xxx.xxx.xxx:xxxx']).update corp_code, old_tel_num, group_code, new_tel_num
 ```
 
 **params**
@@ -56,7 +56,7 @@ Safen.update corp_code, old_tel_num, group_code, new_tel_num
 ### 취소 요청
 
 ```
-Safen.remove corp_code, new_tel_num, group_code
+Safen.new(['xxx.xxx.xxx.xxx:xxxx']).remove corp_code, new_tel_num, group_code
 ```
 
 **params**

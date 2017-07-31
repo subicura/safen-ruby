@@ -1,4 +1,4 @@
-module Safen
+class Safen
   class SafenError < StandardError
     attr_reader :code
 
