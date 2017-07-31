@@ -1,12 +1,17 @@
 module Safen
   class Header
     class << self
-      # 전화번호 맵핑
+      # 전화번호 매핑
       def mapping_request(corp_code)
         create_header 110, '1001', corp_code
       end
 
-      # 전화번호 맵핑 해제
+      # 전화번호 매핑 수정
+      def mapping_update_request(corp_code)
+        create_header 170, '1003', corp_code
+      end
+
+      # 전화번호 매핑 해제
       def mapping_cancel_request(corp_code)
         create_header 30, '1002', corp_code
       end

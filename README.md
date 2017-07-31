@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-### 연동 요청
+### 매핑 요청
 
 ```
 Safen.create corp_code, old_tel_num, group_code
@@ -35,6 +35,23 @@ Safen.create corp_code, old_tel_num, group_code
 **ret**
 
 연동 성공시 연동된 0504 전화번호, 실패시 결과 코드표 참고
+
+### 수정 요청
+
+```
+Safen.update corp_code, old_tel_num, group_code, new_tel_num
+```
+
+**params**
+
+- `corp_code`: 업체코드
+- `old_tel_num`: 실제 사용중인 착신번호
+- `group_code`: 그룹코드
+- `new_tel_num`: 맵핑할 번호
+
+**ret**
+
+연동 성공시 0000, 실패시 결과 코드표 참고
 
 ### 취소 요청
 
