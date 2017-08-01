@@ -39,6 +39,15 @@ class Safen
         tel_num = new_tel_num.gsub(/-/, '')
         "#{tel_num.ljust(20, ' ')}#{group_code.ljust(10, ' ')}"
       end
+
+      # 전화번호 매핑 조회
+      #
+      # 설명 offset, length
+      # 0504 매핑번호 0, 20 (매핑된 전화번호)
+      def mapping_show_request(new_tel_num, group_code)
+        tel_num = new_tel_num.gsub(/-/, '')
+        "#{tel_num.ljust(20, ' ')}"
+      end
     end
   end
 end

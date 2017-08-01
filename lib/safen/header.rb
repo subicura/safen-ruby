@@ -16,6 +16,11 @@ class Safen
         create_header 30, '1002', corp_code
       end
 
+      # 전화번호 매핑 조회
+      def mapping_show_request(corp_code)
+        create_header 20, '1004', corp_code
+      end
+
       # 전문길이 (4byte) Header를 제외한 Body data size
       # 업무구분코드 (4byte)
       # 업체코드 (4byte) Telink 에서 부여.
