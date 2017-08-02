@@ -22,8 +22,13 @@ Or install it yourself as:
 
 ### 매핑 요청
 
+텔링크에서 번호를 관리하는 경우 사용. 고객사에서 수동관리하는 경우는 "수정 요청" API로 번호를 생성
+
 ```
 Safen.new('xxxx', ['xxx.xxx.xxx.xxx:xxxx']).create old_tel_num, group_code
+
+# 생성
+Safen.new('1111', ['111.111.111.111:1111']).create '010-1234-5678', 'group_1' # => 0504-1234-5678
 ```
 
 **params**
@@ -37,8 +42,17 @@ Safen.new('xxxx', ['xxx.xxx.xxx.xxx:xxxx']).create old_tel_num, group_code
 
 ### 수정 요청
 
+기본적으로 번호를 수정할때 사용하나 고객사에서 수동관리하는 경우는 "매핑 요청", "수정 요청", "삭제 요청"으로 사용
+
 ```
 Safen.new('xxxx', ['xxx.xxx.xxx.xxx:xxxx']).update old_tel_num, new_old_tel_num, group_code, new_tel_num
+
+# 수정 (0504-1234-5678에 매핑된 번호가 010-1234-5678 이였는데 010-9999-9999로 바꿈
+Safen.new('1111', ['111.111.111.111:1111']).update '010-1234-5678', '010-9999-9999', 'group_1', '0504-1234-5678'
+# 생성 (고객사 관리시 / 0504-1234-5678를 010-1234,5678로 매핑)
+Safen.new('1111', ['111.111.111.111:1111']).update '1234567890', '010-1234,5678', 'group_1', '0504-1234-5678'
+# 삭제 (고객사 관리시 / 0504-1234-5678에 매핑된걸 제거)
+Safen.new('1111', ['111.111.111.111:1111']).update '010-1234-5678', '1234567890', 'group_1', '0504-1234-5678'
 ```
 
 **params**
@@ -54,8 +68,13 @@ Safen.new('xxxx', ['xxx.xxx.xxx.xxx:xxxx']).update old_tel_num, new_old_tel_num,
 
 ### 취소 요청
 
+텔링크에서 번호를 관리하는 경우 사용. 고객사에서 수동관리하는 경우는 "수정 요청" API로 취소 요청
+
 ```
 Safen.new('xxxx', ['xxx.xxx.xxx.xxx:xxxx']).remove new_tel_num, group_code
+
+# 취소 ('010-9999-9999' 번호 제거)
+Safen.new('1111', ['111.111.111.111:1111']).remove '0504-1234-5678', 'group_1' 
 ```
 
 **params**
@@ -71,6 +90,9 @@ Safen.new('xxxx', ['xxx.xxx.xxx.xxx:xxxx']).remove new_tel_num, group_code
 
 ```
 Safen.new('xxxx', ['xxx.xxx.xxx.xxx:xxxx']).show new_tel_num, group_code
+
+# 조회 ('010-9999-9999' 번호 조회)
+Safen.new('1111', ['111.111.111.111:1111']).show '0504-1234-5678', 'group_1' 
 ```
 
 **params**
