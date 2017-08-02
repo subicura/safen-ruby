@@ -75,7 +75,7 @@ class Safen
 
   # 수정 요청
   # @param old_tel_num [String] 기존 착신번호 (고객사에서 관리하는 경우 신규시 1234567890)
-  # @param new_old_tel_num [String] 신규 착신번호 (고객사에서 관리하는 경우 수정시 1234567890)
+  # @param new_old_tel_num [String] 신규 착신번호 (고객사에서 관리하는 경우 삭제시 1234567890)
   # @param group_code [String] 그룹코드
   # @param new_tel_num [String] 매핑할 번호
   # @return [bool] 성공여부
