@@ -74,13 +74,14 @@ class Safen
   end
 
   # 수정 요청
-  # @param old_tel_num [String] 실제 사용중인 착신번호
+  # @param old_tel_num [String] 기존 착신번호 (고객사에서 관리하는 경우 신규시 1234567890)
+  # @param new_old_tel_num [String] 신규 착신번호 (고객사에서 관리하는 경우 수정시 1234567890)
   # @param group_code [String] 그룹코드
   # @param new_tel_num [String] 매핑할 번호
   # @return [bool] 성공여부
-  def update(old_tel_num, group_code, new_tel_num)
+  def update(old_tel_num, new_old_tel_num, group_code, new_tel_num)
     header = Header.mapping_update_request(@corp_code)
-    body = Body.mapping_update_request(old_tel_num, new_tel_num, group_code)
+    body = Body.mapping_update_request(old_tel_num, new_old_tel_num, group_code, new_tel_num)
 
     code, data = call_api(header, body)
 

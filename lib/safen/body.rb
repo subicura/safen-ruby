@@ -15,15 +15,15 @@ class Safen
       end
 
       # 전화번호 매핑 수정
-      def mapping_update_request(old_tel_num, new_tel_num, group_code)
-        default_old_tel_num = '1234567890'
+      def mapping_update_request(old_tel_num, new_old_tel_num, group_code, new_tel_num)
+        new_old_tel_num_nomalize = new_old_tel_num.gsub(/-/, '')
         old_tel_num_nomalize = old_tel_num.gsub(/-/, '')
         new_tel_num_nomalize = new_tel_num.gsub(/-/, '')
 
         ret = ''
         ret += "#{new_tel_num_nomalize.ljust(20, ' ')}"
-        ret += "#{default_old_tel_num.ljust(20, ' ')}#{old_tel_num_nomalize.ljust(20, ' ')}"
-        ret += "#{default_old_tel_num.ljust(20, ' ')}#{old_tel_num_nomalize.ljust(20, ' ')}"
+        ret += "#{old_tel_num_nomalize.ljust(20, ' ')}#{new_old_tel_num_nomalize.ljust(20, ' ')}"
+        ret += "#{old_tel_num_nomalize.ljust(20, ' ')}#{new_old_tel_num_nomalize.ljust(20, ' ')}"
         ret += "#{group_code.ljust(10, ' ')}"
         ret += "#{' ' * 50}#{' ' * 10}"
 

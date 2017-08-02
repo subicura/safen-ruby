@@ -38,14 +38,15 @@ Safen.new('xxxx', ['xxx.xxx.xxx.xxx:xxxx']).create old_tel_num, group_code
 ### 수정 요청
 
 ```
-Safen.new('xxxx', ['xxx.xxx.xxx.xxx:xxxx']).update old_tel_num, group_code, new_tel_num
+Safen.new('xxxx', ['xxx.xxx.xxx.xxx:xxxx']).update old_tel_num, new_old_tel_num, group_code, new_tel_num
 ```
 
 **params**
 
-- `old_tel_num`: 실제 사용중인 착신번호
+- `old_tel_num`: 기존 착신번호
+- `new_old_tel_num`: 신규 착신번호
 - `group_code`: 그룹코드
-- `new_tel_num`: 맵핑할 번호
+- `new_tel_num`: 0504 맵핑할 번호
 
 **ret**
 
