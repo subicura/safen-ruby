@@ -25,7 +25,7 @@ class Safen
       # 업무구분코드 (4byte)
       # 업체코드 (4byte) Telink 에서 부여.
       def create_header(len, code, corp_code)
-        "#{len.to_s.rjust(4, '0')}#{code}#{corp_code}"
+        "#{len.to_s.ljust(4, ' ')}#{code}#{corp_code}"
       end
     end
   end
